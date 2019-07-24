@@ -95,6 +95,14 @@
         <option value="Ages 11-12" data-term-1="43" data-term-3="129" data-term-6="253" data-term-12="506">Ages 11-12</option>
         <option id="term_adults" value="Adult" data-term-1="43" data-term-3="129" data-term-6="253" data-term-12="506" data-term-1000-1="55" data-term-1000-3="165" data-term-1000-6="325" data-term-1000-12="650" data-term-1000+-1="73" data-term-1000+-3="219" data-term-1000+-6="433" data-term-1000+-12="866" selected="">Adult</option>
       </select>
+			<div id="difficulty_block" class="">
+        <label for="difficulty">Select puzzle difficulty</label>
+        <select class="select-css mb-6" id="difficulty" name="difficulty">
+          <option value="Easy/medium (500 pieces)">Easy/medium (500 pieces)</option>
+          <option value="Medium/hard (1000 pieces)">Medium/hard (1000 pieces)</option>
+          <option value="Hard/expert (1000+ pieces)">Hard/expert (1000+ pieces)</option>
+        </select>
+      </div>
       <fieldset class="btn-group">
         <legend><span>Select the categories of interest</span></legend>
         <div class="flex flex-wrap justify-between">
@@ -208,19 +216,11 @@
           </div>
         </div>
       </fieldset>
-      <div id="difficulty" class="">
-        <label for="difficulty">Select puzzle difficulty</label>
-        <select class="select-css mb-6" id="difficulty" name="difficulty">
-          <option value="Easy/medium (500 pieces)">Easy/medium (500 pieces)</option>
-          <option value="Medium/hard (1000 pieces)">Medium/hard (1000 pieces)</option>
-          <option value="Hard/expert (1000+ pieces)">Hard/expert (1000+ pieces)</option>
-        </select>
-      </div>
     </fieldset>
 
     <div class="order-details text-center mb-8">
       <p class="font-bold">Total subscription cost
-      <strong class="block text-5xl">$<span id="intitalPrice">129</span>.00</strong>
+      <strong class="block text-5xl">$<span id="intitalPrice">129.00</span></strong>
       </p>
       <p class="text-sm">Includes 1 puzzle per month for <span id="subTerm">3 months</span></p>
       <p class="text-sm">Includes shipping and GST</p>
@@ -425,5 +425,6 @@
   </script>
 
 	<script src="./files/site.js" defer></script>
+	<script src="./files/cart-update.js" defer></script>
 
 </body></html>
