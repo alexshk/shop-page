@@ -4,7 +4,7 @@ $(document).ready(function(){
   if ($('#intitalPrice').length) {
 
     // price matrix as js object
-    var m = {
+    window.cart_m = {
       "Ages 1-2": {
         "By the month": {
           "1": 39,
@@ -137,19 +137,33 @@ $(document).ready(function(){
 
     // initial variables set up
     var sub_type = $('#sub_type').val();
-    var sub_term = $('#sub_term').val();
+    var sub_term = '';
+    if (sub_type == 'By the month') {
+      sub_term = $('#sub_term_monthly').val();
+    }
+    else {
+      sub_term = $('#sub_term_upfront').val();
+    }
     var age = $('#age_range').val();
     var diff = $('#difficulty').val();
 
     // calculate and fill values
     function calc_cart(sub_type, sub_term, age, diff) {
+
+      // console.log('----');
+      // console.log(sub_type);
+      // console.log(sub_term);
+      // console.log(age);
+      // console.log(diff);
+      // console.log('----');
+
       var value = 0;
       var term = "";
       if (age == 'Adult') {
-        value = m[age][diff][sub_type][sub_term];
+        value = window.cart_m[age][diff][sub_type][sub_term];
       }
       else {
-        value = m[age][sub_type][sub_term];
+        value = window.cart_m[age][sub_type][sub_term];
       }
       if (sub_term == "1") {
         term = "1 month"
@@ -164,9 +178,23 @@ $(document).ready(function(){
     // events tracking
     $('body').on('change','#sub_type',function() {
       sub_type = $(this).val();
+      if (sub_type == 'By the month') {
+        $('div.upfront').addClass('hidden');
+        $('div.monthly').removeClass('hidden');
+        sub_term = $('#sub_term_monthly').val();
+      }
+      else {
+        $('div.monthly').addClass('hidden');
+        $('div.upfront').removeClass('hidden');
+        sub_term = $('#sub_term_upfront').val();
+      }
       calc_cart(sub_type, sub_term, age, diff);
     })
-    $('body').on('change','#sub_term',function() {
+    $('body').on('change','#sub_term_upfront',function() {
+      sub_term = $(this).val();
+      calc_cart(sub_type, sub_term, age, diff);
+    })
+    $('body').on('change','#sub_term_monthly',function() {
       sub_term = $(this).val();
       calc_cart(sub_type, sub_term, age, diff);
     })
@@ -183,7 +211,9 @@ $(document).ready(function(){
     $('body').on('change','#difficulty',function() {
       diff = $(this).val();
       calc_cart(sub_type, sub_term, age, diff);
-    })
+    });
+
+    calc_cart(sub_type, sub_term, age, diff);
 
   }
 

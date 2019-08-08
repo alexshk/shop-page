@@ -60,42 +60,174 @@
 	<main id="content">
 		<article>
 						<div class="wrap mx-auto px-4 pt-4 pb-8">
-			<p class="bread mb-6"><a href="/">Home</a> <span class="arrow-0">→</span> Shop</p>
-  <h1 class="page-title">Shop</h1><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure rerum in tempore sit ducimus doloribus quod commodi eligendi ipsam porro non fugiat nisi eaque delectus harum aspernatur recusandae incidunt quasi.</p>
-  <form action="/shop/#" class="my-12">
+			<p class="bread mb-6"><a href="/">Home</a> <span class="arrow-0">&rarr;</span> Shop</p>
+  <h1 class="page-title">Shop</h1>
+  <form action="#" class="my-12">
     <fieldset class="has-legend">
       <legend><span>Basic details</span></legend>
       <label for="sub_type">Choose whether to pay by the month or pay up front</label>
       <select class="select-css mb-6" id="sub_type" name="sub_type">
         <option value="By the month">By the month</option>
-        <option value="Up front" selected="">Up front</option>
+        <option value="Up front" selected>Up front</option>
       </select>
-      <label for="sub_term">Subscription term</label>
-      <select class="select-css mb-6" id="sub_term" name="sub_term">
-        <option value="1" data-term="1 month">1 Month</option>
-        <option value="3" data-term="3 months" selected="">3 Months</option>
-        <option value="6" data-term="6 months">6 Months</option>
-        <option value="12" data-term="12 months">12 Months</option>
-      </select>
-      <label for="sub_for">Who is this subscription for?</label>
-      <select class="select-css mb-6" id="sub_for" name="sub_for">
-        <option value="Myself" selected="">Myself</option>
-        <option value="Gift for a loved one">Gift for a loved one</option>
-      </select>
+      <div class="upfront">
+        <label for="sub_term">Subscription term</label>
+        <select class="select-css mb-6" id="sub_term_upfront" name="sub_term_upfront">
+          <option value="1" data-term="1 month">1 Month</option>
+          <option value="3" data-term="3 months" selected>3 Months</option>
+          <option value="6" data-term="6 months">6 Months</option>
+          <option value="12" data-term="12 months">12 Months</option>
+        </select>
+        <label for="sub_for">Who is this subscription for?</label>
+        <select class="select-css mb-6" id="sub_for" name="sub_for">
+          <option value="Myself" selected>Myself</option>
+          <option value="Gift for a loved one">Gift for a loved one</option>
+        </select>
+      </div>
+      <div class="monthly hidden content">
+        <p>When choosing to pay by the month, we'll collect details to personalise the subscription after your order is completed.</p>
+        <p>Complete a few initial details below so that we can get the right right price for you. Once you're ready, add the subscription to your cart and you'll be on your way.</p>
+      </div>
     </fieldset>
     <fieldset class="has-legend">
       <legend><span>Puzzle details</span></legend>
+
+      <div class="monthly hidden">
+        <label for="sub_term">Choose subscription frequency</label>
+        <select class="select-css mb-6" id="sub_term_monthly" name="sub_term_monthly">
+          <option value="1" data-term="1 month">Monthly</option>
+          <option value="2" data-term="2 months">Every 2 months</option>
+          <option value="3" data-term="3 months">Every 3 months</option>
+        </select>
+      </div>
+
       <label for="age_range">Select age range</label>
       <select class="select-css mb-12" id="age_range" name="age_range">
-        <option value="Ages 1-2" data-term-1="39" data-term-3="117" data-term-6="229" data-term-12="458">Ages 1-2</option>
-        <option value="Ages 3-4" data-term-1="39" data-term-3="117" data-term-6="229" data-term-12="458">Ages 3-4</option>
-        <option value="Ages 5-6" data-term-1="39" data-term-3="117" data-term-6="229" data-term-12="458">Ages 5-6</option>
-        <option value="Ages 7-8" data-term-1="41" data-term-3="123" data-term-6="241" data-term-12="482">Ages 7-8</option>
-        <option value="Ages 9-10" data-term-1="43" data-term-3="129" data-term-6="253" data-term-12="506">Ages 9-10</option>
-        <option value="Ages 11-12" data-term-1="43" data-term-3="129" data-term-6="253" data-term-12="506">Ages 11-12</option>
-        <option id="term_adults" value="Adult" data-term-1="43" data-term-3="129" data-term-6="253" data-term-12="506" data-term-1000-1="55" data-term-1000-3="165" data-term-1000-6="325" data-term-1000-12="650" data-term-1000+-1="73" data-term-1000+-3="219" data-term-1000+-6="433" data-term-1000+-12="866" selected="">Adult</option>
+        <option value="Ages 1-2">Ages 1-2</option>
+        <option value="Ages 3-4">Ages 3-4</option>
+        <option value="Ages 5-6">Ages 5-6</option>
+        <option value="Ages 7-8">Ages 7-8</option>
+        <option value="Ages 9-10">Ages 9-10</option>
+        <option value="Ages 11-12">Ages 11-12</option>
+        <option value="Adult" selected>Adult</option>
       </select>
-			<div id="difficulty_block" class="">
+
+      <fieldset class="pill-group">
+        <legend><span>Select the categories of interest</span></legend><br><br>
+        <div class="pill-container flex flex-wrap justify-between -mx-2 sm:-mx-4">
+          <div class="pill-wrap">
+            <input class="pill-input" name="categories" type="checkbox" id="cat_animals" value="Animals">
+            <label class="pill-label" for="cat_animals">Animals</label>
+          </div>
+          <div class="pill-wrap">
+            <input class="pill-input" name="categories" type="checkbox" id="cat_art" value="Art">
+            <label class="pill-label" for="cat_art">Art</label>
+          </div>
+          <div class="pill-wrap">
+            <input class="pill-input" name="categories" type="checkbox" id="cat_australia" value="Australia">
+            <label class="pill-label" for="cat_australia">Australia</label>
+          </div>
+          <div class="pill-wrap">
+            <input class="pill-input" name="categories" type="checkbox" id="cat_birds" value="Birds">
+            <label class="pill-label" for="cat_birds">Birds</label>
+          </div>
+          <div class="pill-wrap">
+            <input class="pill-input" name="categories" type="checkbox" id="cat_buildings" value="Buildings">
+            <label class="pill-label" for="cat_buildings">Buildings</label>
+          </div>
+          <div class="pill-wrap">
+            <input class="pill-input" name="categories" type="checkbox" id="cat_cars" value="Cars">
+            <label class="pill-label" for="cat_cars">Cars</label>
+          </div>
+          <div class="pill-wrap">
+            <input class="pill-input" name="categories" type="checkbox" id="cat_cats" value="Cats">
+            <label class="pill-label" for="cat_cats">Cats</label>
+          </div>
+          <div class="pill-wrap">
+            <input class="pill-input" name="categories" type="checkbox" id="cat_christmas" value="Christmas">
+            <label class="pill-label" for="cat_christmas">Christmas</label>
+          </div>
+          <div class="pill-wrap">
+            <input class="pill-input" name="categories" type="checkbox" id="cat_cities" value="Cities">
+            <label class="pill-label" for="cat_cities">Cities</label>
+          </div>
+          <div class="pill-wrap">
+            <input class="pill-input" name="categories" type="checkbox" id="cat_cottages" value="Cottages">
+            <label class="pill-label" for="cat_cottages">Cottages</label>
+          </div>
+          <div class="pill-wrap">
+            <input class="pill-input" name="categories" type="checkbox" id="cat_dinosaurs" value="Dinosaurs">
+            <label class="pill-label" for="cat_dinosaurs">Dinosaurs</label>
+          </div>
+          <div class="pill-wrap">
+            <input class="pill-input" name="categories" type="checkbox" id="cat_dogs" value="Dogs">
+            <label class="pill-label" for="cat_dogs">Dogs</label>
+          </div>
+          <div class="pill-wrap">
+            <input class="pill-input" name="categories" type="checkbox" id="cat_disney" value="Disney" data-extra="10">
+            <label class="pill-label" for="cat_disney">Disney (+$10.00)</label>
+          </div>
+          <div class="pill-wrap">
+            <input class="pill-input" name="categories" type="checkbox" id="cat_dragons" value="Dragons">
+            <label class="pill-label" for="cat_dragons">Dragons</label>
+          </div>
+          <div class="pill-wrap">
+            <input class="pill-input" name="categories" type="checkbox" id="cat_europe" value="Europe">
+            <label class="pill-label" for="cat_europe">Europe</label>
+          </div>
+          <div class="pill-wrap">
+            <input class="pill-input" name="categories" type="checkbox" id="cat_famous" value="Famous People">
+            <label class="pill-label" for="cat_famous">Famous People</label>
+          </div>
+          <div class="pill-wrap">
+            <input class="pill-input" name="categories" type="checkbox" id="cat_fantasy" value="Fantasy">
+            <label class="pill-label" for="cat_fantasy">Fantasy</label>
+          </div>
+          <div class="pill-wrap">
+            <input class="pill-input" name="categories" type="checkbox" id="cat_flowers" value="Flowers & Gardens">
+            <label class="pill-label" for="cat_flowers">Flowers & Gardens</label>
+          </div>
+          <div class="pill-wrap">
+            <input class="pill-input" name="categories" type="checkbox" id="cat_food" value="Food & Drink">
+            <label class="pill-label" for="cat_food">Food & Drink</label>
+          </div>
+          <div class="pill-wrap">
+            <input class="pill-input" name="categories" type="checkbox" id="cat_landscapes" value="Landscapes">
+            <label class="pill-label" for="cat_landscapes">Landscapes</label>
+          </div>
+          <div class="pill-wrap">
+            <input class="pill-input" name="categories" type="checkbox" id="cat_lifestyle" value="Lifestyle">
+            <label class="pill-label" for="cat_lifestyle">Lifestyle</label>
+          </div>
+          <div class="pill-wrap">
+            <input class="pill-input" name="categories" type="checkbox" id="cat_maps" value="Maps">
+            <label class="pill-label" for="cat_maps">Maps</label>
+          </div>
+          <div class="pill-wrap">
+            <input class="pill-input" name="categories" type="checkbox" id="cat_nostalgia" value="Nostalgia">
+            <label class="pill-label" for="cat_nostalgia">Nostalgia</label>
+          </div>
+          <div class="pill-wrap">
+            <input class="pill-input" name="categories" type="checkbox" id="cat_ocean" value="Ocean & Seas">
+            <label class="pill-label" for="cat_ocean">Ocean & Seas</label>
+          </div>
+          <div class="pill-wrap">
+            <input class="pill-input" name="categories" type="checkbox" id="cat_ships" value="Ships & Boats">
+            <label class="pill-label" for="cat_ships">Ships & Boats</label>
+          </div>
+          <div class="pill-wrap">
+            <input class="pill-input" name="categories" type="checkbox" id="cat_space" value="Space">
+            <label class="pill-label" for="cat_space">Space</label>
+          </div>
+          <div class="pill-wrap">
+            <input class="pill-input" name="categories" type="checkbox" id="cat_trains" value="Trains">
+            <label class="pill-label" for="cat_trains">Trains</label>
+          </div>
+          <div class="pill-wrap"></div>
+        </div>
+      </fieldset>
+
+      <div id="difficulty_block">
         <label for="difficulty">Select puzzle difficulty</label>
         <select class="select-css mb-6" id="difficulty" name="difficulty">
           <option value="Easy/medium (500 pieces)">Easy/medium (500 pieces)</option>
@@ -103,130 +235,18 @@
           <option value="Hard/expert (1000+ pieces)">Hard/expert (1000+ pieces)</option>
         </select>
       </div>
-      <fieldset class="btn-group">
-        <legend><span>Select the categories of interest</span></legend>
-        <div class="flex flex-wrap justify-between">
-          <div>
-            <input class="pill-input" name="categories" type="checkbox" id="cat_animals" value="Animals">
-            <label class="pill-label" for="cat_animals">Animals</label>
-          </div>
-          <div>
-            <input class="pill-input" name="categories" type="checkbox" id="cat_art" value="Art">
-            <label class="pill-label" for="cat_art">Art</label>
-          </div>
-          <div>
-            <input class="pill-input" name="categories" type="checkbox" id="cat_australia" value="Australia">
-            <label class="pill-label" for="cat_australia">Australia</label>
-          </div>
-          <div>
-            <input class="pill-input" name="categories" type="checkbox" id="cat_birds" value="Birds">
-            <label class="pill-label" for="cat_birds">Birds</label>
-          </div>
-          <div>
-            <input class="pill-input" name="categories" type="checkbox" id="cat_buildings" value="Buildings">
-            <label class="pill-label" for="cat_buildings">Buildings</label>
-          </div>
-          <div>
-            <input class="pill-input" name="categories" type="checkbox" id="cat_cars" value="Cars">
-            <label class="pill-label" for="cat_cars">Cars</label>
-          </div>
-          <div>
-            <input class="pill-input" name="categories" type="checkbox" id="cat_cats" value="Cats">
-            <label class="pill-label" for="cat_cats">Cats</label>
-          </div>
-          <div>
-            <input class="pill-input" name="categories" type="checkbox" id="cat_christmas" value="Christmas">
-            <label class="pill-label" for="cat_christmas">Christmas</label>
-          </div>
-          <div>
-            <input class="pill-input" name="categories" type="checkbox" id="cat_cities" value="Cities">
-            <label class="pill-label" for="cat_cities">Cities</label>
-          </div>
-          <div>
-            <input class="pill-input" name="categories" type="checkbox" id="cat_cottages" value="Cottages">
-            <label class="pill-label" for="cat_cottages">Cottages</label>
-          </div>
-          <div>
-            <input class="pill-input" name="categories" type="checkbox" id="cat_dinosaurs" value="Dinosaurs">
-            <label class="pill-label" for="cat_dinosaurs">Dinosaurs</label>
-          </div>
-          <div>
-            <input class="pill-input" name="categories" type="checkbox" id="cat_dogs" value="Dogs">
-            <label class="pill-label" for="cat_dogs">Dogs</label>
-          </div>
-          <div>
-            <input class="pill-input" name="categories" type="checkbox" id="cat_disney" value="Disney" data-extra="10">
-            <label class="pill-label" for="cat_disney">Disney (+$10.00)</label>
-          </div>
-          <div>
-            <input class="pill-input" name="categories" type="checkbox" id="cat_dragons" value="Dragons">
-            <label class="pill-label" for="cat_dragons">Dragons</label>
-          </div>
-          <div>
-            <input class="pill-input" name="categories" type="checkbox" id="cat_europe" value="Europe">
-            <label class="pill-label" for="cat_europe">Europe</label>
-          </div>
-          <div>
-            <input class="pill-input" name="categories" type="checkbox" id="cat_famous" value="Famous People">
-            <label class="pill-label" for="cat_famous">Famous People</label>
-          </div>
-          <div>
-            <input class="pill-input" name="categories" type="checkbox" id="cat_fantasy" value="Fantasy">
-            <label class="pill-label" for="cat_fantasy">Fantasy</label>
-          </div>
-          <div>
-            <input class="pill-input" name="categories" type="checkbox" id="cat_flowers" value="Flowers &amp; Gardens">
-            <label class="pill-label" for="cat_flowers">Flowers &amp; Gardens</label>
-          </div>
-          <div>
-            <input class="pill-input" name="categories" type="checkbox" id="cat_food" value="Food &amp; Drink">
-            <label class="pill-label" for="cat_food">Food &amp; Drink</label>
-          </div>
-          <div>
-            <input class="pill-input" name="categories" type="checkbox" id="cat_landscapes" value="Landscapes">
-            <label class="pill-label" for="cat_landscapes">Landscapes</label>
-          </div>
-          <div>
-            <input class="pill-input" name="categories" type="checkbox" id="cat_lifestyle" value="Lifestyle">
-            <label class="pill-label" for="cat_lifestyle">Lifestyle</label>
-          </div>
-          <div>
-            <input class="pill-input" name="categories" type="checkbox" id="cat_maps" value="Maps">
-            <label class="pill-label" for="cat_maps">Maps</label>
-          </div>
-          <div>
-            <input class="pill-input" name="categories" type="checkbox" id="cat_nostalgia" value="Nostalgia">
-            <label class="pill-label" for="cat_nostalgia">Nostalgia</label>
-          </div>
-          <div>
-            <input class="pill-input" name="categories" type="checkbox" id="cat_ocean" value="Ocean &amp; Seas">
-            <label class="pill-label" for="cat_ocean">Ocean &amp; Seas</label>
-          </div>
-          <div>
-            <input class="pill-input" name="categories" type="checkbox" id="cat_ships" value="Ships &amp; Boats">
-            <label class="pill-label" for="cat_ships">Ships &amp; Boats</label>
-          </div>
-          <div>
-            <input class="pill-input" name="categories" type="checkbox" id="cat_space" value="Space">
-            <label class="pill-label" for="cat_space">Space</label>
-          </div>
-          <div>
-            <input class="pill-input" name="categories" type="checkbox" id="cat_trains" value="Trains">
-            <label class="pill-label" for="cat_trains">Trains</label>
-          </div>
-        </div>
-      </fieldset>
+
     </fieldset>
 
     <div class="order-details text-center mb-8">
-      <p class="font-bold">Total subscription cost
-      <strong class="block text-5xl">$<span id="intitalPrice">129.00</span></strong>
+      <p class="font-bold">Total <span class="monthly hidden">monthly</span> subscription cost
+      <strong class="block text-5xl">$<span id="intitalPrice"></span></strong>
       </p>
-      <p class="text-sm">Includes 1 puzzle per month for <span id="subTerm">3 months</span></p>
+      <p class="text-sm">Includes 1 puzzle per month for <span id="subTerm"></span></p>
       <p class="text-sm">Includes shipping and GST</p>
     </div>
 
-    <fieldset class="has-legend">
+    <fieldset class="has-legend upfront">
       <legend><span>Subscriber details</span></legend>
       <div class="-mx-3 md:flex mb-6">
         <div class="md:w-1/2 px-3 mb-6 md:mb-0">
@@ -262,95 +282,282 @@
       <textarea class="w-full" name="message" id="message" rows="10"></textarea>
     </fieldset>
 
-    <button id="button_sub" class="snipcart-add-item button hidden" data-item-name="Puzzle Post Subscription" data-item-id="puzzlepost_sub" data-item-url="/shop/" data-item-price="43" data-item-payment-interval="Month" data-item-payment-interval-count="3">
+    <button
+      id="button_sub"
+      class="snipcart-add-item button hidden"
+      data-item-name="Puzzle Post Subscription"
+      data-item-id="puzzlepost_sub"
+      data-item-url="https://staging.puzzlepost.com.au/shop/"
+      data-item-price="43"
+      data-item-payment-interval="Month"
+      data-item-payment-interval-count="3"
+    >
       Add to cart
     </button>
 
-    <button id="button_order" class="snipcart-add-item button" data-item-name="Puzzle Post Order" data-item-id="puzzlepost_order" data-item-price="129" data-item-url="/shop/" data-item-custom1-name="Term" data-item-custom1-value="3 months" data-item-custom2-name="For" data-item-custom2-value="Myself" data-item-custom3-name="Age range" data-item-custom3-value="Adult" data-item-custom4-name="Categories" data-item-custom4-type="textarea" data-item-custom5-name="Difficulty" data-item-custom5-value="Easy/medium" data-item-custom6-name="First Name" data-item-custom7-name="Last Name" data-item-custom8-name="Age" data-item-custom8-options="Select|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|31|32|33|34|35|36|37|38|39|40|41|42|43|44|45|46|47|48|49|50|51|52|53|54|55|56|57|58|59|60|61|62|63|64|65|66|67|68|69|70|71|72|73|74|75|76|77|78|79|80|81|82|83|84|85|86|87|88|89|90|91|92|93|94|95|96|97|98|99|100|101|" data-item-custom9-name="Gender" data-item-custom9-options="Select|Male|Female|Unspecified" data-item-custom10-name="Info" data-item-custom10-type="textarea" data-item-custom11-name="Personal message" data-item-custom11-type="textarea">
+    <button
+      id="button_order"
+      class="snipcart-add-item button"
+      data-item-name="Puzzle Post Order"
+      data-item-id="puzzlepost_order"
+      data-item-price="129"
+      data-item-url="https://staging.puzzlepost.com.au/shop/"
+      data-item-custom1-name="Term"
+      data-item-custom1-value="3 months"
+      data-item-custom2-name="For"
+      data-item-custom2-value="Myself"
+      data-item-custom3-name="Age range"
+      data-item-custom3-value="Adult"
+      data-item-custom4-name="Categories"
+      data-item-custom4-type="textarea"
+      data-item-custom5-name="Difficulty"
+      data-item-custom5-value="Easy/medium"
+      data-item-custom6-name="First Name"
+      data-item-custom7-name="Last Name"
+      data-item-custom8-name="Age"
+      data-item-custom8-options="Select|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|31|32|33|34|35|36|37|38|39|40|41|42|43|44|45|46|47|48|49|50|51|52|53|54|55|56|57|58|59|60|61|62|63|64|65|66|67|68|69|70|71|72|73|74|75|76|77|78|79|80|81|82|83|84|85|86|87|88|89|90|91|92|93|94|95|96|97|98|99|100|101|"
+      data-item-custom9-name="Gender"
+      data-item-custom9-options="Select|Male|Female|Unspecified"
+      data-item-custom10-name="Info"
+      data-item-custom10-type="textarea"
+      data-item-custom11-name="Personal message"
+      data-item-custom11-type="textarea"
+    >
       Add to cart
     </button>
 
-    <button class="snipcart-add-item button hidden" data-item-name="Puzzle Post Order" data-item-id="puzzlepost_order_0" data-item-price="39" data-item-url="/shop/">
+    <button
+      class="snipcart-add-item button hidden"
+      data-item-name="Puzzle Post Order"
+      data-item-id="puzzlepost_order_0"
+      data-item-price="39"
+      data-item-url="https://staging.puzzlepost.com.au/shop/"
+    >
       Add to cart
     </button>
 
-    <button class="snipcart-add-item button hidden" data-item-name="Puzzle Post Order" data-item-id="puzzlepost_order_1" data-item-price="117" data-item-url="/shop/">
+    <button
+      class="snipcart-add-item button hidden"
+      data-item-name="Puzzle Post Order"
+      data-item-id="puzzlepost_order_1"
+      data-item-price="117"
+      data-item-url="https://staging.puzzlepost.com.au/shop/"
+    >
       Add to cart
     </button>
 
-    <button class="snipcart-add-item button hidden" data-item-name="Puzzle Post Order" data-item-id="puzzlepost_order_2" data-item-price="229" data-item-url="/shop/">
+    <button
+      class="snipcart-add-item button hidden"
+      data-item-name="Puzzle Post Order"
+      data-item-id="puzzlepost_order_2"
+      data-item-price="229"
+      data-item-url="https://staging.puzzlepost.com.au/shop/"
+    >
       Add to cart
     </button>
 
-    <button class="snipcart-add-item button hidden" data-item-name="Puzzle Post Order" data-item-id="puzzlepost_order_3" data-item-price="458" data-item-url="/shop/">
+    <button
+      class="snipcart-add-item button hidden"
+      data-item-name="Puzzle Post Order"
+      data-item-id="puzzlepost_order_3"
+      data-item-price="458"
+      data-item-url="https://staging.puzzlepost.com.au/shop/"
+    >
       Add to cart
     </button>
 
-    <button class="snipcart-add-item button hidden" data-item-name="Puzzle Post Order" data-item-id="puzzlepost_order_12" data-item-price="41" data-item-url="/shop/">
+    <button
+      class="snipcart-add-item button hidden"
+      data-item-name="Puzzle Post Order"
+      data-item-id="puzzlepost_order_12"
+      data-item-price="41"
+      data-item-url="https://staging.puzzlepost.com.au/shop/"
+    >
       Add to cart
     </button>
 
-    <button class="snipcart-add-item button hidden" data-item-name="Puzzle Post Order" data-item-id="puzzlepost_order_13" data-item-price="123" data-item-url="/shop/">
+    <button
+      class="snipcart-add-item button hidden"
+      data-item-name="Puzzle Post Order"
+      data-item-id="puzzlepost_order_13"
+      data-item-price="123"
+      data-item-url="https://staging.puzzlepost.com.au/shop/"
+    >
       Add to cart
     </button>
 
-    <button class="snipcart-add-item button hidden" data-item-name="Puzzle Post Order" data-item-id="puzzlepost_order_14" data-item-price="241" data-item-url="/shop/">
+    <button
+      class="snipcart-add-item button hidden"
+      data-item-name="Puzzle Post Order"
+      data-item-id="puzzlepost_order_14"
+      data-item-price="241"
+      data-item-url="https://staging.puzzlepost.com.au/shop/"
+    >
       Add to cart
     </button>
 
-    <button class="snipcart-add-item button hidden" data-item-name="Puzzle Post Order" data-item-id="puzzlepost_order_15" data-item-price="482" data-item-url="/shop/">
+    <button
+      class="snipcart-add-item button hidden"
+      data-item-name="Puzzle Post Order"
+      data-item-id="puzzlepost_order_15"
+      data-item-price="482"
+      data-item-url="https://staging.puzzlepost.com.au/shop/"
+    >
       Add to cart
     </button>
 
-    <button class="snipcart-add-item button hidden" data-item-name="Puzzle Post Order" data-item-id="puzzlepost_order_16" data-item-price="43" data-item-url="/shop/">
+    <button
+      class="snipcart-add-item button hidden"
+      data-item-name="Puzzle Post Order"
+      data-item-id="puzzlepost_order_16"
+      data-item-price="43"
+      data-item-url="https://staging.puzzlepost.com.au/shop/"
+    >
       Add to cart
     </button>
 
-    <button class="snipcart-add-item button hidden" data-item-name="Puzzle Post Order" data-item-id="puzzlepost_order_17" data-item-price="129" data-item-url="/shop/">
+    <button
+      class="snipcart-add-item button hidden"
+      data-item-name="Puzzle Post Order"
+      data-item-id="puzzlepost_order_17"
+      data-item-price="129"
+      data-item-url="https://staging.puzzlepost.com.au/shop/"
+    >
       Add to cart
     </button>
 
-    <button class="snipcart-add-item button hidden" data-item-name="Puzzle Post Order" data-item-id="puzzlepost_order_18" data-item-price="253" data-item-url="/shop/">
+    <button
+      class="snipcart-add-item button hidden"
+      data-item-name="Puzzle Post Order"
+      data-item-id="puzzlepost_order_18"
+      data-item-price="253"
+      data-item-url="https://staging.puzzlepost.com.au/shop/"
+    >
       Add to cart
     </button>
 
-    <button class="snipcart-add-item button hidden" data-item-name="Puzzle Post Order" data-item-id="puzzlepost_order_19" data-item-price="506" data-item-url="/shop/">
+    <button
+      class="snipcart-add-item button hidden"
+      data-item-name="Puzzle Post Order"
+      data-item-id="puzzlepost_order_19"
+      data-item-price="506"
+      data-item-url="https://staging.puzzlepost.com.au/shop/"
+    >
       Add to cart
     </button>
 
-    <button class="snipcart-add-item button hidden" data-item-name="Puzzle Post Order" data-item-id="puzzlepost_order_28" data-item-price="55" data-item-url="/shop/">
+    <button
+      class="snipcart-add-item button hidden"
+      data-item-name="Puzzle Post Order"
+      data-item-id="puzzlepost_order_24"
+      data-item-price="Easy/medium (500 pieces)"
+      data-item-url="https://staging.puzzlepost.com.au/shop/"
+    >
       Add to cart
     </button>
 
-    <button class="snipcart-add-item button hidden" data-item-name="Puzzle Post Order" data-item-id="puzzlepost_order_29" data-item-price="165" data-item-url="/shop/">
+    <button
+      class="snipcart-add-item button hidden"
+      data-item-name="Puzzle Post Order"
+      data-item-id="puzzlepost_order_29"
+      data-item-price="Medium/hard (1000 pieces)"
+      data-item-url="https://staging.puzzlepost.com.au/shop/"
+    >
       Add to cart
     </button>
 
-    <button class="snipcart-add-item button hidden" data-item-name="Puzzle Post Order" data-item-id="puzzlepost_order_30" data-item-price="325" data-item-url="/shop/">
+    <button
+      class="snipcart-add-item button hidden"
+      data-item-name="Puzzle Post Order"
+      data-item-id="puzzlepost_order_30"
+      data-item-price="55"
+      data-item-url="https://staging.puzzlepost.com.au/shop/"
+    >
       Add to cart
     </button>
 
-    <button class="snipcart-add-item button hidden" data-item-name="Puzzle Post Order" data-item-id="puzzlepost_order_31" data-item-price="650" data-item-url="/shop/">
+    <button
+      class="snipcart-add-item button hidden"
+      data-item-name="Puzzle Post Order"
+      data-item-id="puzzlepost_order_31"
+      data-item-price="165"
+      data-item-url="https://staging.puzzlepost.com.au/shop/"
+    >
       Add to cart
     </button>
 
-    <button class="snipcart-add-item button hidden" data-item-name="Puzzle Post Order" data-item-id="puzzlepost_order_32" data-item-price="73" data-item-url="/shop/">
+    <button
+      class="snipcart-add-item button hidden"
+      data-item-name="Puzzle Post Order"
+      data-item-id="puzzlepost_order_32"
+      data-item-price="325"
+      data-item-url="https://staging.puzzlepost.com.au/shop/"
+    >
       Add to cart
     </button>
 
-    <button class="snipcart-add-item button hidden" data-item-name="Puzzle Post Order" data-item-id="puzzlepost_order_33" data-item-price="219" data-item-url="/shop/">
+    <button
+      class="snipcart-add-item button hidden"
+      data-item-name="Puzzle Post Order"
+      data-item-id="puzzlepost_order_33"
+      data-item-price="650"
+      data-item-url="https://staging.puzzlepost.com.au/shop/"
+    >
       Add to cart
     </button>
 
-    <button class="snipcart-add-item button hidden" data-item-name="Puzzle Post Order" data-item-id="puzzlepost_order_34" data-item-price="433" data-item-url="/shop/">
+    <button
+      class="snipcart-add-item button hidden"
+      data-item-name="Puzzle Post Order"
+      data-item-id="puzzlepost_order_34"
+      data-item-price="Hard/expert (1000+ pieces)"
+      data-item-url="https://staging.puzzlepost.com.au/shop/"
+    >
       Add to cart
     </button>
 
-    <button class="snipcart-add-item button hidden" data-item-name="Puzzle Post Order" data-item-id="puzzlepost_order_35" data-item-price="866" data-item-url="/shop/">
+    <button
+      class="snipcart-add-item button hidden"
+      data-item-name="Puzzle Post Order"
+      data-item-id="puzzlepost_order_35"
+      data-item-price="73"
+      data-item-url="https://staging.puzzlepost.com.au/shop/"
+    >
+      Add to cart
+    </button>
+
+    <button
+      class="snipcart-add-item button hidden"
+      data-item-name="Puzzle Post Order"
+      data-item-id="puzzlepost_order_36"
+      data-item-price="219"
+      data-item-url="https://staging.puzzlepost.com.au/shop/"
+    >
+      Add to cart
+    </button>
+
+    <button
+      class="snipcart-add-item button hidden"
+      data-item-name="Puzzle Post Order"
+      data-item-id="puzzlepost_order_37"
+      data-item-price="433"
+      data-item-url="https://staging.puzzlepost.com.au/shop/"
+    >
+      Add to cart
+    </button>
+
+    <button
+      class="snipcart-add-item button hidden"
+      data-item-name="Puzzle Post Order"
+      data-item-id="puzzlepost_order_38"
+      data-item-price="866"
+      data-item-url="https://staging.puzzlepost.com.au/shop/"
+    >
       Add to cart
     </button>
 
   </form>
+
   			</div>
 		</article>
 	</main>
